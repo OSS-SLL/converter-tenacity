@@ -1,6 +1,11 @@
 import streamlit as st
 import math
 import pandas as pd
+from PIL import Image
+
+favicon = Image.open('sci-lume-fav_BW.png')
+
+st.set_page_config(page_title="SLL Tenacity Conversion", page_icon=favicon)
 
 def convert_units(value, from_unit, to_unit, density):
     if from_unit == to_unit:
@@ -106,7 +111,9 @@ def convert_units(value, from_unit, to_unit, density):
         return math.nan  # Return NaN if conversion is not supported
     
 # Stress/Tenacity Part
-st.title("Tenacity Conversion")
+# st.title("Tenacity Conversion") commented out per streamlit recommendation for SEO
+st.header("Tenacity Conversion")
+st.text("A simple app to convert between different yarn tenacity and stress measurements")
 
 # col1, col2, col3 = st.columns(3)
 mmcol1, mmcol2 = st.columns([1, 2])
